@@ -28,3 +28,7 @@ You can also directly contact me on my Discord or Twitter:
 • Twitter: @chatterteethsrc
 • Discord: chatterteeth
 ```
+
+## License
+
+This project is licensed under the [MIT](LICENSE) license.
