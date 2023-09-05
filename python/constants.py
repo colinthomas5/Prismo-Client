@@ -4,7 +4,7 @@ fileList = ["\\overworld_forest_cave.pak", "\\overworld_forest_cave_2.pak", "\\o
 			"\\overworld_wasteland_cave_1.pak", "\\temple_dream_master.pak", "\\temple_fear_master.pak", "\\temple_song_master.pak"]
 
 # List of items to check randomization; Null char added to each entry to maintain a consistent length of 19
-defaultItemList = ["PickupChestItemKey\0", "PickupTreasureHuge\0", "PickupTrailMix\0\0\0\0\0", "PickupSpareThumps\0\0", "PickupTrailMix3\0\0\0\0", "PickupMeat\0\0\0\0\0\0\0\0\0", "PickupHeartPiece\0\0\0", 
+defaultItemList = ["PickupChestItemKey\0", "PickupTreasureHuge\0", "PickupSpareThumps\0\0", "PickupTrailMix3\0\0\0\0", "PickupMeat\0\0\0\0\0\0\0\0\0", "PickupHeartPiece\0\0\0", 
 			"PickupPencil\0\0\0\0\0\0\0", "PickupSweater\0\0\0\0\0\0", "PickupMapPaper\0\0\0\0\0", "PickupChestItemRBK\0", "PickupTreasureSmall", "PickupTreasureBig\0\0",
 			"PickupGumGlobe\0\0\0\0\0", "PickupWoodPlank\0\0\0\0", "PickupPlasticBag\0\0\0", "PickupFruitStack\0\0\0", "PickupHeroGauntlet\0", "PickupTrailMix1\0\0\0\0", "PickupTrailMix2\0\0\0\0", "PickupTrailMix4\0\0\0\0", "PickupGrabbyHand\0\0\0"]
 	
@@ -88,10 +88,10 @@ logList12 = ["Fear Swamp Broken Bridge Chest", "Fear Swamp Temple Outskirts Dry 
 logList13 = ["Fear Swamp Gunter Cave Chest"]
 
 # List of readable spoiler log entries for \\temple_dream_master.pak
-logList14 = ["Dream Temple 2F Ledge Key Chest", "Dream Temple Key 2", "Dream Temple 1F Switch Room Huge Treasure Chest", "Dream Temple Huge Treasure 2", "Drem Temple Spare Thumps", "Dream Temple 1F Pencil Chest", "Dream Temple 1F Map Paper Chest", "Dream Temple 2F Fruit Stack Chest", "Dream Temple Key 3", "Dream Temple 1F Main Room Right Key Chest", "Dream Temple Key 5", "Dream Temple Huge Reasure 3", "Dream Temple 1F Really Big Key Chest", "Dream Temple 1F Hero Gauntlet Chest", "Dream Temple Key 6", "Dream Temple 4F Gum Globe Chest", "Dream Temple TrailMix1", "Dream Temple 3F Pressure Plate Room Key Chest", "Dream Temple Key 8", "Dream Temple 2F West Huge Treasure Chest", "Dream Temple Big Treasure"]
+logList14 = ["Dream Temple 2F Ledge Key Chest", "Dream Temple 2F Dark Room Key Chest", "Dream Temple 1F Switch Room Huge Treasure Chest", "Dream Temple 3F Locked Stairs Huge Treasure Chest ", "Dream Temple 3F Spare Thumps Chest", "Dream Temple 1F Pencil Chest", "Dream Temple 1F Map Paper Chest", "Dream Temple 2F Fruit Stack Chest", "Dream Temple 3F Spike Cage Key Chest", "Dream Temple 1F Main Room Right Key Chest", "Dream Temple 1F Main Room Left Key Chest", "Dream Temple 1F Spike Cage Huge Treasure Chest", "Dream Temple 1F Really Big Key Chest", "Dream Temple 1F Hero Gauntlet Chest", "Dream Temple 1F Hazard Hallway Key Chest", "Dream Temple 4F Gum Globe Chest", "Dream Temple 2F TrailMix1 Chest", "Dream Temple 3F Pressure Plate Room Key Chest", "Dream Temple 3F Dark Room ANNOYING POOL FLOATIE ENEMY Key Chest", "Dream Temple 2F West Huge Treasure Chest", "Dream Temple Big Treasure Chest"]
 
 # List of readable spoiler log entries for \\temple_fear_master.pak
-logList15 = ["Fear Temple Key 1", "Fear Temple Pencil Chest", "Fear Temple Map Paper Chest", "Fear Temple Really Big Key Chest", "Fear Temple Gum Globe", "Fear Temple Spare Thumps", "Fear Temple Fruit Stack 1", "Fear Temple TrailMix2", "Fear Temple Fruit Stack 2", "Fear Temple TrailMix3"]
+logList15 = ["Fear Temple 3F Key Chest", "Fear Temple B1 Pencil Chest", "Fear Temple F1 Map Paper Chest", "Fear Temple B1 Really Big Key Chest", "Fear Temple F1 Underwater Gum Globe Chest", "Fear Temple B1 Spare Thumps Chest", "Fear Temple Fruit Stack 1", "Fear Temple 1F Underwater TrailMix2 Chest", "Fear Temple Fruit Stack 2", "Fear Temple 1F Underwater TrailMix3 Chest"]
 
 # List of readable spoiler log entries for \\temple_song_master.pak
 logList16 = ["Song Temple 1F Ledge Key Chest", "Song Temple 1F Box Room Key Chest", "Song Temple 1B Puzzle Room Key Chest", "Song Temple 1B Pencil Chest", "Song Temple 1F Map Paper Chest", "Song Temple 2F Really Big Key Chest", "Song Temple 1B Grabby Hand Chest", "Song Temple 1F Gum Globe Chest", "Song Temple 2F Huge Treasure Chest", "Song Temple 1F Huge Treasure Chest", "Song Temple 2F Sleeping Magi Room Key Chest", "Song Temple 2F Sleeping Magi Room Small Treasure Chest"]

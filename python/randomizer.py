@@ -14,6 +14,8 @@ def randomize(dir, prefs, fileList, spoilerLog, itemList, itemLocal, itemListExp
 	for settings in spoilerLog:
 		spoilerLogCMD += settings.replace("\n", " | ")
 	print(spoilerLogCMD)
+	if prefs["customSeed"] == "logTest":
+		itemListLogTest = itemList + itemListExpanded
 	for key in files:
 		while (fileNumber == 0 and key != "\\castle_basement_master.pak") or (fileNumber == 1 and key != "\\castle_nightmare_master.pak") or (fileNumber == 7 and key != "\\overworld_lsp_cave.pak"):
 			fileNumber += 1
@@ -112,6 +114,7 @@ def randomize(dir, prefs, fileList, spoilerLog, itemList, itemLocal, itemListExp
 		lineNumber = 0
 		spoilerLogIndex = 0
 		standardCheck = 0
+		itemNumberLogTest = 0
 		#print("Now distributing items and NPCs in:", dir + key)
 		if prefs["itemRandomization"] != 0:
 			print("Now distributing items in:", dir + key)
@@ -139,10 +142,13 @@ def randomize(dir, prefs, fileList, spoilerLog, itemList, itemLocal, itemListExp
 						if prefs["itemLogic"] != 0 and key == "\\castle_nightmare_master.pak":
 							while itemLocal[randomNumber] == "PickupGrabbyHand\0\0\0" or itemLocal[randomNumber] == "PickupHeroGauntlet\0":
 								randomNumber = random.randint(0, length-1)
-							if prefs["lspCaveRando"] == 1:
-								while itemLocal[randomNumber] == "PickupSlammyHand\0\0\0" or itemLocal[randomNumber] == "PickupGrabbyHand\0\0\0" or itemLocal[randomNumber] == "PickupHeroGauntlet\0":
-									randomNumber = random.randint(0, length-1)
-						replacement = lineList[lineNumber].replace(placeholder, itemLocal[randomNumber], 1)
+						if prefs["lspCaveRando"] == 1:
+							while itemLocal[randomNumber] == "PickupSlammyHand\0\0\0" or itemLocal[randomNumber] == "PickupGrabbyHand\0\0\0" or itemLocal[randomNumber] == "PickupHeroGauntlet\0":
+								randomNumber = random.randint(0, length-1)
+						if prefs["customSeed"] == "logTest":
+							replacement = lineList[lineNumber].replace(placeholder, itemListLogTest[itemNumberLogTest])
+						else:
+							replacement = lineList[lineNumber].replace(placeholder, itemLocal[randomNumber], 1)
 						lineList[lineNumber] = replacement.lstrip(' ')
 						line = lineList[lineNumber]
 						print("Replaced placeholder with", itemLocal[randomNumber])
@@ -151,11 +157,15 @@ def randomize(dir, prefs, fileList, spoilerLog, itemList, itemLocal, itemListExp
 							for entry in spoilerLog:
 								if entry == areaClean:
 									spoilerLogIndex += 1
-									logItemClean = itemLocal[randomNumber].replace("Pickup", "")
+									if prefs["customSeed"] == "logTest":
+										logItemClean = itemListLogTest[itemNumberLogTest].replace("Pickup", "")
+										itemNumberLogTest += 1
+									else:
+										logItemClean = itemLocal[randomNumber].replace("Pickup", "")
 									logIndex = int(spoilerLog.index(entry) + spoilerLogIndex)
 									logEntry = spoilerLog[logIndex] + logItemClean + "\n"
 									spoilerLog[logIndex] = logEntry
-						itemLocal.remove(itemLocal[randomNumber])
+						#itemLocal.remove(itemLocal[randomNumber])
 					standardCheck += 1
 				lineNumber += 1
 			print("Item distribution completed for ", dir + key)
