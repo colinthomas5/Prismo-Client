@@ -1,6 +1,7 @@
 import os
 import random
 import constants
+import re
 
 from fileHandler import readFiles, writeFiles, writeLog
 
@@ -150,8 +151,9 @@ def randomize(dir, prefs, fileList, spoilerLog, itemList, itemLocal, itemListExp
 							for entry in spoilerLog:
 								if entry == areaClean:
 									spoilerLogIndex += 1
+									logItemClean = itemLocal[randomNumber].replace("Pickup", "")
 									logIndex = int(spoilerLog.index(entry) + spoilerLogIndex)
-									logEntry = spoilerLog[logIndex] + itemLocal[randomNumber] + "\n"
+									logEntry = spoilerLog[logIndex] + logItemClean + "\n"
 									spoilerLog[logIndex] = logEntry
 						itemLocal.remove(itemLocal[randomNumber])
 					standardCheck += 1
@@ -192,4 +194,6 @@ def randomize(dir, prefs, fileList, spoilerLog, itemList, itemLocal, itemListExp
 	print("Your seed is: ", prefs["customSeed"])
 	if prefs["spoilerLog"] == 1:
 		writeLog(spoilerLog)
+	else:
+		os.remove("spoiler.log")
 	return

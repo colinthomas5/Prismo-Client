@@ -149,12 +149,17 @@ namespace Prismo_Client
             var randoProcess = new System.Diagnostics.Process();
             randoProcess.StartInfo.FileName = "python3.exe";
             randoProcess.StartInfo.Arguments = "python\\main.py " + launchParameters + " -hl";
-            //randoProcess.StartInfo.RedirectStandardError = true;
-            //randoProcess.StartInfo.RedirectStandardOutput = true;
-            //randoProcess.StartInfo.UseShellExecute = false;
-            //randoProcess.StartInfo.CreateNoWindow = true;
+            randoProcess.StartInfo.RedirectStandardError = true;
+            randoProcess.StartInfo.RedirectStandardOutput = true;
+            randoProcess.StartInfo.UseShellExecute = false;
+            randoProcess.StartInfo.CreateNoWindow = true;
+            string randoErrorOutput = "", randoStandardOutput = "";
+            randoProcess.OutputDataReceived += (standardSender, standardE) => { randoStandardOutput += standardE.Data; };
+            randoProcess.ErrorDataReceived += (errSender, errE) => { randoErrorOutput += errE.Data; };
             randoProcess.Start();
-            string randoErrorOutput = "";
+
+            randoProcess.BeginErrorReadLine();
+            randoProcess.BeginOutputReadLine();
             randoProcess.WaitForExit();
             if (randoProcess.ExitCode != 0)
             {
