@@ -66,7 +66,7 @@ namespace Prismo_Client
             checkBoxLSP.Font = fromWhereYouAreFont;
             checkBoxNMC.Font = fromWhereYouAreFont;
             checkBoxSpoilerLog.Font = fromWhereYouAreFont;
-            buttonRandom.Font = adventureTimeFont;
+            buttonRandom.Font = randomizeTimeFont;
 
         }
 
