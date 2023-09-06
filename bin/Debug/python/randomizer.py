@@ -14,7 +14,7 @@ def randomize(dir, prefs, fileList, spoilerLog, itemList, itemLocal, itemListExp
 	for settings in spoilerLog:
 		spoilerLogCMD += settings.replace("\n", " | ")
 	print(spoilerLogCMD)
-	if prefs["customSeed"] == "logTest":
+	if prefs["logTest"] == 1:
 		itemListLogTest = itemList + itemListExpanded
 	for key in files:
 		while (fileNumber == 0 and key != "\\castle_basement_master.pak") or (fileNumber == 1 and key != "\\castle_nightmare_master.pak") or (fileNumber == 7 and key != "\\overworld_lsp_cave.pak"):
@@ -130,25 +130,25 @@ def randomize(dir, prefs, fileList, spoilerLog, itemList, itemLocal, itemListExp
 						length = len(itemLocal)
 						randomNumber = random.randint(0, length-1)
 						heroRockTest = heroRock + placeholder
-						if prefs["itemLogic"] != 0 and heroRockTest in line:
-							#print("Heavy rock worky")
-							while itemLocal[randomNumber] == "PickupHeroGauntlet\0":
-								randomNumber = random.randint(0, length-1)
-						fireTreeTest = placeholder + fireTree
-						if prefs["itemLogic"] != 0 and fireTreeTest in line:
-							#print("Dry tree worky")
-							while itemLocal[randomNumber] == "PickupGrabbyHand\0\0\0" or itemLocal[randomNumber] == "PickupFlambo\0\0\0\0\0\0\0":
-								randomNumber = random.randint(0, length-1)
-						if prefs["itemLogic"] != 0 and key == "\\castle_nightmare_master.pak":
-							while itemLocal[randomNumber] == "PickupGrabbyHand\0\0\0" or itemLocal[randomNumber] == "PickupHeroGauntlet\0":
-								randomNumber = random.randint(0, length-1)
-						if prefs["lspCaveRando"] == 1:
-							while itemLocal[randomNumber] == "PickupSlammyHand\0\0\0" or itemLocal[randomNumber] == "PickupGrabbyHand\0\0\0" or itemLocal[randomNumber] == "PickupHeroGauntlet\0":
-								randomNumber = random.randint(0, length-1)
-						if prefs["customSeed"] == "logTest":
-							replacement = lineList[lineNumber].replace(placeholder, itemListLogTest[itemNumberLogTest])
-						else:
+						if prefs["logTest"] == 0:
+							if prefs["itemLogic"] != 0 and heroRockTest in line:
+								#print("Heavy rock worky")
+								while itemLocal[randomNumber] == "PickupHeroGauntlet\0":
+									randomNumber = random.randint(0, length-1)
+							fireTreeTest = placeholder + fireTree
+							if prefs["itemLogic"] != 0 and fireTreeTest in line:
+								#print("Dry tree worky")
+								while itemLocal[randomNumber] == "PickupGrabbyHand\0\0\0" or itemLocal[randomNumber] == "PickupFlambo\0\0\0\0\0\0\0":
+									randomNumber = random.randint(0, length-1)
+							if prefs["itemLogic"] != 0 and key == "\\castle_nightmare_master.pak":
+								while itemLocal[randomNumber] == "PickupGrabbyHand\0\0\0" or itemLocal[randomNumber] == "PickupHeroGauntlet\0":
+									randomNumber = random.randint(0, length-1)
+							if prefs["lspCaveRando"] == 1:
+								while itemLocal[randomNumber] == "PickupSlammyHand\0\0\0" or itemLocal[randomNumber] == "PickupGrabbyHand\0\0\0" or itemLocal[randomNumber] == "PickupHeroGauntlet\0":
+									randomNumber = random.randint(0, length-1)
 							replacement = lineList[lineNumber].replace(placeholder, itemLocal[randomNumber], 1)
+						else:
+							replacement = lineList[lineNumber].replace(placeholder, itemListLogTest[itemNumberLogTest])	
 						lineList[lineNumber] = replacement.lstrip(' ')
 						line = lineList[lineNumber]
 						print("Replaced placeholder with", itemLocal[randomNumber])
@@ -157,7 +157,7 @@ def randomize(dir, prefs, fileList, spoilerLog, itemList, itemLocal, itemListExp
 							for entry in spoilerLog:
 								if entry == areaClean:
 									spoilerLogIndex += 1
-									if prefs["customSeed"] == "logTest":
+									if prefs["logTest"] == 1:
 										logItemClean = itemListLogTest[itemNumberLogTest].replace("Pickup", "")
 										itemNumberLogTest += 1
 									else:
