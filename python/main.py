@@ -41,6 +41,7 @@ parser.add_argument("-lsp", "--lsp-cave-randomization", help="Randomize the LSP 
 parser.add_argument("-ntmr", "--nightmare-castle-randomization", help="Randomize the Nightmare Castle area", action="store_true", default=False)
 parser.add_argument("-bsmt", "--castle-basement-randomization", help="Randomize the Castle Basement area", action="store_true", default=False)
 parser.add_argument("-hl", "--headless", help = "Run the randomizer in headless mode", action="store_true", default=False)
+parser.add_argument("-lt", "--log-test", help = "Run the randomizer in a log testing mode", action="store_true", default=False)
 
 prefs, log, spoilerLog, itemList = parseOptions(parser.parse_args(), constants.defaultItemList, constants.fileList, constants.itemListExpanded)
 
