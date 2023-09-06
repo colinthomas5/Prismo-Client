@@ -15,6 +15,7 @@ namespace Prismo_Client
         private PrivateFontCollection fonts = new PrivateFontCollection();
 
         Font adventureTimeFont;
+        Font randomizeTimeFont;
         Font fromWhereYouAreFont;
         Font fromWhereYouAreSmallFont;
 
@@ -41,7 +42,8 @@ namespace Prismo_Client
             AddFontMemResourceEx(fontPtr2, (uint)Properties.Resources.GLOBAL_FROMWHEREYOUARE_AT.Length, IntPtr.Zero, ref dummy2);
             System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr2);
 
-            adventureTimeFont = new Font(fonts.Families[0], 16.0F);
+            adventureTimeFont = new Font(fonts.Families[0], 36.0F);
+            randomizeTimeFont = new Font(fonts.Families[0], 16.0F);
             fromWhereYouAreFont = new Font(fonts.Families[1], 8.0F);
             fromWhereYouAreSmallFont = new Font(fonts.Families[1], 6.0F);
 
